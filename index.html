@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Alisha ✨</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffe5ec, #ffc2d1);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            overflow: hidden;
+            text-align: center;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 450px;
+            width: 90%;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        h2 { color: #ff477e; margin-bottom: 20px; font-size: 24px; }
+        p { color: #6c757d; font-size: 16px; line-height: 1.5; }
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+            position: relative;
+        }
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            font-weight: bold;
+        }
+        .btn-primary { background-color: #ff7096; color: white; }
+        .btn-primary:hover { background-color: #ff477e; }
+        .btn-run {
+            position: absolute;
+            background-color: #ced4da;
+            color: #495057;
+            z-index: 10;
+        }
+        .food-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-top: 10px;
+            display: none;
+        }
+        .screen { display: none; }
+        .active { display: block; }
+        .bear-img { width: 150px; margin-top: 15px; }
+        .big-text { font-size: 28px; color: #ff0054; font-weight: bold; animation: pop 0.5s ease; }
+        @keyframes pop { 0% { transform: scale(0.5); } 100% { transform: scale(1); } }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div id="screen1" class="screen active">
+            <h2>Hi Alisha, how are you?</h2>
+            <div class="btn-container" style="height: 120px;">
+                <button class="btn-primary" onclick="selectHappy()">Option 2: Very very happy 😍</button>
+                <button id="runBtn" class="btn-run" style="bottom: 0; left: 35%;">Option 1: Normal Good</button>
+            </div>
+        </div>
+
+        <div id="screen1-reward" class="screen">
+            <p class="big-text">I know, because you saw my message! 😅🤪</p>
+            <img src="https://media.tenor.com/j4sk_vNOn78AAAAi/vvh-milk-and-mocha.gif" class="bear-img" alt="Cute Bear">
+            <br><br>
+            <button class="btn-primary" onclick="nextScreen(2)">Next Question 👉</button>
+        </div>
+
+        <div id="screen2" class="screen">
+            <h2>Which food do you prefer? 😋</h2>
+            <div class="btn-container">
+                <button class="btn-primary" onclick="showFood('dosa')">Option 1: Dosa</button>
+                <button class="btn-primary" onclick="showFood('pav')">Option 2: Pav Bhaji</button>
+                <button class="btn-primary" onclick="showFood('dal')">Option 3: Dal Bati</button>
+                <button class="btn-primary" style="background: #4cc9f0;" onclick="showFood('kartik')">Option 4: Kartik k hath ka khana ❤️</button>
+            </div>
+            <img id="dosa-img" class="food-img" src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=500" alt="Dosa">
+            <img id="pav-img" class="food-img" src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=500" alt="Pav Bhaji">
+            <img id="dal-img" class="food-img" src="https://images.unsplash.com/photo-1645080060368-0050ac7dfa64?w=500" alt="Dal Bati">
+            <img id="kartik-img" class="food-img" src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=500" alt="Cooking">
+            <br>
+            <button class="btn-primary" style="margin-top:15px;" onclick="nextScreen(3)">Next Question 👉</button>
+        </div>
+
+        <div id="screen3" class="screen">
+            <h2>Where do you want to hangout? 🗺️</h2>
+            <div class="btn-container">
+                <button class="btn-primary" onclick="alert('Bro... hospital? Really? 🏥😂')">Option 1: Rajgarh Hospital</button>
+                <button class="btn-primary" onclick="alert('Classic choice! 🏰')">Option 2: Rajgarh ka kila</button>
+                <button class="btn-primary" onclick="alert('Umm... romantic? 💀💀')">Option 3: Shamshanghat</button>
+                <button class="btn-primary" onclick="alert('Heavy driver ho! 🚂🏗️')">Option 4: Construction site of Rajgarh Railway Station</button>
+                <button class="btn-primary" onclick="alert('Safe option! 🍟')">Option 5: Restaurant</button>
+            </div>
+            <br>
+            <button class="btn-primary" onclick="nextScreen(4)">Next: VERY IMPORTANT QUESTION 🧐</button>
+        </div>
+
+        <div id="screen4" class="screen">
+            <h2>🧐 Main Point 🧐</h2>
+            <p style="text-align: left; font-size: 14px;">Did your father complete his LLB degree from Rajgarh College? My brother is telling me to become a lawyer and give the judge exam. I asked people, but I don't find any good person who is doing a 5-year LLB from this college. They all are village people...</p>
+            <div class="btn-container">
+                <button class="btn-primary" onclick="nextScreen(5)">Option 1: Yes</button>
+                <button class="btn-primary" onclick="nextScreen(5)">Option 2: No</button>
+                <button class="btn-primary" style="background: #3a0ca3;" onclick="alert('Expect the unexpected! 💀'); nextScreen(5)">Option 3: Don't expect this 😭💀</button>
+            </div>
+        </div>
+
+        <div id="screen5" class="screen">
+            <h2>😎 Computer Skills Flex 😎</h2>
+            <p class="big-text" style="color: #4cc9f0;">How is it?!</p>
+            <p><i>"I am not going anywhere in the rain, I hate rain. I am a cold-prone person!" 🥶🌧️</i></p>
+            <br>
+            <img src="https://media.tenor.com/0v8X9_wQ97gAAAAi/stitch-rain.gif" style="width: 120px;" alt="Cold Stitch">
+            <p style="color: #ff477e; font-weight: bold; margin-top: 15px;">Made with ❤️ by Kartik</p>
+        </div>
+    </div>
+
+    <script>
+        const runBtn = document.getElementById('runBtn');
+        runBtn.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - runBtn.offsetWidth - 50);
+            const y = Math.random() * (window.innerHeight - runBtn.offsetHeight - 50);
+            runBtn.style.position = 'fixed';
+            runBtn.style.left = `${x}px`;
+            runBtn.style.top = `${y}px`;
+        });
+        runBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            const x = Math.random() * (window.innerWidth - runBtn.offsetWidth - 50);
+            const y = Math.random() * (window.innerHeight - runBtn.offsetHeight - 50);
+            runBtn.style.position = 'fixed';
+            runBtn.style.left = `${x}px`;
+            runBtn.style.top = `${y}px`;
+        });
+        runBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert("Nice try, but you can't click this! 😉");
+        });
+
+        function selectHappy() {
+            document.getElementById('screen1').classList.remove('active');
+            document.getElementById('screen1-reward').classList.add('active');
+        }
+
+        function nextScreen(screenNum) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(`screen${screenNum}`).classList.add('active');
+        }
+
+        function showFood(foodId) {
+            document.querySelectorAll('.food-img').forEach(img => img.style.display = 'none');
+            document.getElementById(`${foodId}-img`).style.display = 'block';
+        }
+    </script>
+</body>
+  </html>
+  
